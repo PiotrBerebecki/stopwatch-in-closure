@@ -1,5 +1,6 @@
 html {
   box-sizing: border-box;
+  height: 100%;
 }
 
 *, *:before, *:after {
@@ -9,6 +10,122 @@ html {
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(to top right, #ddd, #fff);
+  font-family: 'Droid Sans Mono', monospace;
+  font-weight: 100;
   color: #555;
+  height: 100%;
+  user-select: none;
+}
+
+.app {
+  background-color: rgb(0, 163, 238);
+  height: 100%;
+  width: 100%;
+  box-shadow: -10px 10px 20px 0px rgba(0,0,0,0.2);
+}
+
+@media screen and (min-width: 48em) {
+  .app {
+    width: 30em;
+    height: 80%;
+  }
+}
+
+.display {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 90%;
+}
+
+.display__clock {
+  position: relative;
+  width: 100%;
+}
+
+.display__clock:after {
+  display: block;
+  margin-top: 100%;
+  content: '';
+}
+
+.display__wrapper {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-left: auto;
+  margin-right: auto;
+  width: 77%;
+  height: 77%;
+  border-radius: 50%;
+  border: 10px solid rgb(3, 132, 191);
+}
+
+.display__time {
+  width: 100%;
+  color: white;
+  font-size: 2rem;
+  text-align: center;
+}
+
+@media screen and (min-width: 30em) {
+  .display__time {
+    font-size: 3rem;
+  }
+}
+
+.controls {
+  display: flex;
+  height: 10%;
+  box-shadow: 0px -8px 14px -1px rgba(0,0,0,0.35)
+}
+
+.controls__btn {
+  flex: 1;
+  background-color: rgb(0, 163, 238);
+  color: white;
+  border: 1px solid rgb(3, 132, 191);
+  font-size: 1.2rem;
+  outline: 0;
+  cursor: pointer;
+}
+
+@media screen and (min-width: 30em) {
+  .controls__btn {
+    font-size: 1.7rem;
+  }
+}
+
+.controls__btn:active {
+  background-color: rgb(3, 132, 191);
+}
+
+.controls__btn--focus {
+  background-color: rgb(3, 132, 191);
+}
+
+@media screen and (min-width: 48em) and (max-height: 750px) {
+  .display__clock {
+    width: 70%;
+  }
+
+  .display__wrapper {
+    width: 97%;
+    height: 97%;
+  }
+
+  .display__time {
+    font-size: 2.5rem;
+  }
 }

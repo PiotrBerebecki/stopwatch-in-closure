@@ -1,15 +1,12 @@
-# Vanilla JavaScript App
+# Stopwatch in a closure
 
-Vanilla JavaScript App.
+Stopwatch business logic in a single function
 
-Live version: https://REPO.herokuapp.com
+Live version: https://piotrberebecki.github.io/stopwatch-in-closure/
 
-<!-- <img src="./src/graphics/screencast.gif" width="275px" height="auto"> -->
+<img src="./src/graphics/screencast.gif" width="275px" height="auto">
 
 ## Tech stack
-* Node
-* Express
-* Heroku
 * Browsersync
 * Vanilla JavaScript
 * ES6
@@ -23,7 +20,7 @@ cd 'REPO NAME HERE'
 npm install
 
 #1. Start the development server with Browsersync reloading
-npm run dev
+npm start
 
 #2. Open this url in your browser: http://localhost:3000
 ```
