@@ -1,3 +1,5 @@
+console.clear();
+
 const timer = (function(display) {
 
   let isRunning;
@@ -5,17 +7,22 @@ const timer = (function(display) {
   let elapsedTime = 0;
   let animationFrameId;
 
+  function run() {
+    elapsedTime = Date.now() - startTime;
+    display.textContent = format(elapsedTime);
+    animationFrameId = window.requestAnimationFrame(run);
+  }
+
+  function format(milliseconds) {
+    return new Date(milliseconds).toISOString().slice(-13, -2);
+  }
+
   return {
     start: function() {
       if (isRunning) { return; }
       isRunning = true;
       startTime = Date.now() - elapsedTime;
-      timer.run();
-    },
-    run: function() {
-      elapsedTime = Date.now() - startTime;
-      display.textContent = timer.format(elapsedTime);
-      animationFrameId = window.requestAnimationFrame(timer.run);
+      run();
     },
     stop: function() {
       if (!isRunning) { return; }
@@ -25,11 +32,8 @@ const timer = (function(display) {
     reset: function() {
       isRunning = false;
       elapsedTime = 0;
-      display.textContent = timer.format(elapsedTime);
+      display.textContent = format(elapsedTime);
       window.cancelAnimationFrame(animationFrameId);
-    },
-    format: function(milliseconds) {
-      return new Date(milliseconds).toISOString().slice(-13, -2);
     }
   };
 })(document.getElementById('js-display'));
